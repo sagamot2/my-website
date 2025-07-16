@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>เพลงเธอกับเค้า</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
+      background: url('https://media.giphy.com/media/mlBDoVLOGidEc/giphy.gif') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
+      text-align: center;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: #d0d0d0;
+      text-shadow: 0 0 6px rgba(0,0,0,0.6);
+      text-align: center;
+    }
+
+    .player-container {
+      width: 100%;
+      max-width: 600px;
+      background-color: rgba(40, 40, 40, 0.85);
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      text-align: center;
+      backdrop-filter: blur(8px);
+      margin-bottom: 3rem;
+    }
+
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #1DB954;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      background-color: #1ed760;
+    }
+
+    .back-link {
+      margin-top: 2rem;
+      color: #b3b3b3;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      text-shadow: 0 0 4px rgba(0,0,0,0.7);
+    }
+
+    .back-link:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>เพลง</h1>
+  <p>ฟังเพลงที่เค้าเคยส่งจีบเธอ</p>
+
+  <!-- YouTube Playlist  -->
+  <div class="player-container">
+    <iframe 
+      src="https://www.youtube.com/embed/1enRCDttUr0?autoplay=1&rel=0"
+      height="340"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen
+      title="เพลงเธอกับเค้า">
+    </iframe>
+
+    <a href="https://youtube.com/playlist?list=PLw264t7f7ItAMZd9nABN8H1wZYy0EvdcB" target="_blank" rel="noopener" class="btn">
+      เปิดฟังบน YouTube
+    </a>
+  </div>
+
+  <p>หรือฟังเพลงทั้งหมดในลิสต์นี้ได้เลย</p>
+  <p>🎶</p>
+  <p>🎶</p>
+  <p>🎶</p>
+
+  <a href="https://youtube.com/playlist?list=PLw264t7f7ItAMZd9nABN8H1wZYy0EvdcB&si=dNXNqhPQT69H6ezl" 
+     target="_blank" 
+     rel="noopener" 
+     class="btn" 
+     style="margin-top: 1rem;">
+     🎧 เปิดลิสต์เพลงทั้งหมด
+  </a>
+
+  <!-- Spotify Playlist -->
+  <h2>เพลงเธอที่ส่งให้เค้า</h2>
+  <div class="player-container">
+    <iframe 
+      src="https://open.spotify.com/embed/playlist/4NCkTyq1CcxWumHF2Oi6CB?utm_source=generator"
+      width="100%" 
+      height="700"  
+      frameborder="0" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+
+    <a href="https://open.spotify.com/playlist/4NCkTyq1CcxWumHF2Oi6CB" 
+       target="_blank" 
+       rel="noopener" 
+       class="btn" 
+       style="margin-top: 1rem;">
+       🎵 เปิดบน Spotify
+    </a>
+  </div>
+  <a href="indec.html"class="back-link">
+    ← กลับหน้าหลัก
+  </a>
+
+</body>
+</html>

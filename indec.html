@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Countdown to Meet 💖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Mitr&family=Sriracha&display=swap');
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Mitr', sans-serif;
+      color: #ff5e9c;
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: #000;
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3YmJhbWVyMmZmbmllZ2NqbG5rMmc1dmRsbnpqdG5ucmNxbjllejRqeSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/E549VaHiMjknS/giphy.gif') center center / cover no-repeat fixed;
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-top: 50px;
+      font-family: 'Sriracha', cursive;
+      text-shadow: 1px 1px 3px #ffcce6;
+    }
+
+    a.button, .slide-button {
+      display: inline-block;
+      margin: 15px;
+      padding: 14px 32px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-decoration: none;
+      box-shadow: 0 4px 30px rgba(255, 192, 203, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    a.button:hover, .slide-button:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 6px 35px rgba(255, 105, 180, 0.35);
+    }
+
+    .slide-button::after {
+      content: "🡆";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: right 0.3s ease;
+      font-size: 1.3em;
+    }
+
+    .slide-button:hover::after {
+      right: 10px;
+    }
+
+    a.song-link {
+      margin-top: 40px;
+      background-color: transparent;
+      color: #ff4081;
+      box-shadow: none;
+      font-weight: bold;
+      font-size: 1.2em;
+      padding: 0;
+      text-decoration: none;
+    }
+
+    a.song-link:hover {
+      text-decoration: underline;
+    }
+
+    .credit {
+      margin-top: auto;
+      padding: 20px 0;
+      color: #fff;
+      font-size: 1em;
+      font-weight: bold;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { color: #ff80b3; }
+      50% { color: #ffffff; }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8em; }
+    }
+
+    .bubbles {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -2;
+    }
+
+    .bubbles span {
+      position: absolute;
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      backdrop-filter: blur(5px);
+      animation: floatBubble 20s linear infinite;
+      bottom: -100px;
+    }
+
+    .bubbles span:nth-child(1) { left: 20%; animation-delay: 0s; }
+    .bubbles span:nth-child(2) { left: 40%; animation-delay: 4s; }
+    .bubbles span:nth-child(3) { left: 60%; animation-delay: 8s; }
+    .bubbles span:nth-child(4) { left: 80%; animation-delay: 12s; }
+    .bubbles span:nth-child(5) { left: 90%; animation-delay: 16s; }
+
+    @keyframes floatBubble {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.4;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .floating-bubble {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 182, 193, 0.7);
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      line-height: 60px;
+      border-radius: 50%;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+      text-decoration: none;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .floating-bubble:hover {
+      transform: scale(1.1);
+      background: rgba(255, 182, 193, 0.9);
+      box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ไม่รู้จะทำอะไร</h1>
+
+  <div>
+    <a href="love.html" class="slide-button">เลื่อนไปหน้า Love 💌</a>
+  </div>
+
+  <div>
+    <a onclick="openPopup()" class="slide-button">ดูเวลาแบบ popup ⏰</a>
+  </div>
+
+  <a href="you.html" target="_blank" class="slide-button">
+    🎶 เพลงที่เค้าเคยทำลิสต์ไว้ให้เธอ ฟังแล้วคิดถึงเค้านะ
+  </a>
+
+  <div class="credit">
+    <a href="https://www.tiktok.com/@guhumyai5556" target="_blank" style="color: inherit; text-decoration: none;">
+      ฝากด้วยนะครับ tiktok @guhumyai5556 💫
+    </a>
+  </div>
+
+  <div class="bubbles">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <a href="contact.html" class="floating-bubble" title="ส่งข้อความหาเค้า 💌">💌</a>
+
+  <script>
+    function openPopup() {
+      const width = 500;
+      const height = 600;
+      const left = (screen.width / 2) - (width / 2);
+      const top = (screen.height / 2) - (height / 2);
+      window.open(
+        'time.html',
+        'popupWindow',
+        `width=${width},height=${height},top=${top},left=${left},resizable=no,scrollbars=no`
+      );
+    }
+  </script>
+
+</body>
+</html>
