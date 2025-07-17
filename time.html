@@ -21,6 +21,16 @@
       text-align: center;
     }
 
+    .love-date {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 30px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      font-size: 1.1em;
+    }
+
     h1 {
       font-size: 2.5em;
       margin-bottom: 20px;
@@ -75,10 +85,13 @@
       transform: scale(1.05);
       opacity: 0.9;
     }
-
   </style>
 </head>
 <body>
+
+  <div class="love-date">
+    💗 คบกันตั้งแต่วันที่ 21 พฤษภาคม 2568 💗
+  </div>
 
   <h1>เจอกันในอีก 💞</h1>
   <div id="countdown">กำลังโหลด...</div>
@@ -94,7 +107,8 @@
 
   <script>
     const countdownElement = document.getElementById("countdown");
-    const targetDate = new Date("2025-08-12T00:00:00+07:00");
+
+    const targetDate = new Date("2025-08-09T07:00:00+07:00");
 
     function updateCountdown() {
       const now = new Date();
