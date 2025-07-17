@@ -41,7 +41,7 @@
       padding: 14px 30px;
       margin: 10px auto 25px;
       background: rgba(173, 216, 230, 0.2);
-      border: 5px solid rgba(135, 206, 250, 0.6); /* ขยายขอบ */
+      border: 5px solid rgba(135, 206, 250, 0.6); 
       border-radius: 25px;
       box-shadow: 0 8px 24px rgba(135, 206, 250, 0.4);
       backdrop-filter: blur(12px);
@@ -73,7 +73,6 @@
       margin-right: 8px;
     }
 
-    /* 📱 Responsive สำหรับมือถือ */
     @media (max-width: 600px) {
       h2 {
         font-size: 1.3em;
@@ -93,11 +92,18 @@
   </style>
 </head>
 <body>
+  <h2><span class="emoji">📍</span>นัดเจอกันวันที่</h2>
+  <div class="bubble">🗓 9 สิงหาคม 2025 เวลา 07:00 น.</div>
+
+  <h2><span class="emoji">⏰</span>เวลาปัจจุบัน</h2>
+  <div class="bubble" id="currentTime">กำลังโหลด...</div>
+
   <h2><span class="emoji">⏳</span>เวลาที่เหลือจนได้เจอกัน</h2>
   <div class="bubble" id="meetCountdown">กำลังโหลด...</div>
 
   <h2><span class="emoji">💗</span>เราคบกันมาแล้ว</h2>
   <div class="bubble" id="loveTime">กำลังโหลด...</div>
+
   <a class="back-button" href="index.html">← กลับหน้าหลัก</a>
 
   <script>
@@ -107,6 +113,11 @@
     function updateTimers() {
       const now = new Date();
 
+      const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Bangkok' };
+      const currentTime = now.toLocaleTimeString('th-TH', options);
+      document.getElementById("currentTime").textContent = `⏰ ${currentTime} น.`;
+
+      // คบกันมาแล้ว
       let loveDiff = now - loveStartDate;
       const years = Math.floor(loveDiff / (1000 * 60 * 60 * 24 * 365.25));
       loveDiff -= years * 1000 * 60 * 60 * 24 * 365.25;
@@ -140,4 +151,3 @@
     updateTimers();
   </script>
 </body>
-</html>
