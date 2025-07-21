@@ -6,7 +6,6 @@
   <title>Countdown to Meet 💖</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Mitr&display=swap');
-
     body {
       margin: 0;
       padding: 0;
@@ -20,7 +19,6 @@
       min-height: 100vh;
       text-align: center;
     }
-
     .love-date {
       background: rgba(255, 255, 255, 0.1);
       padding: 12px 30px;
@@ -30,12 +28,10 @@
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
       font-size: 1.1em;
     }
-
     h1 {
       font-size: 2.5em;
       margin-bottom: 20px;
     }
-
     #countdown {
       font-size: 2em;
       background: rgba(255, 255, 255, 0.1);
@@ -44,14 +40,12 @@
       backdrop-filter: blur(10px);
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     }
-
     #countdown-seconds,
     #countdown-minutes {
       margin-top: 10px;
       font-size: 1.2em;
       color: #ffdede;
     }
-
     .back-button {
       margin-top: 30px;
       background: rgba(255, 255, 255, 0.15);
@@ -64,33 +58,27 @@
       backdrop-filter: blur(10px);
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
-
     .back-button:hover {
       background: rgba(255, 255, 255, 0.25);
       transform: scale(1.05);
     }
-
     @keyframes beat {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.3); }
     }
-
     .heart-beat {
       font-size: 2em;
       animation: beat 1s infinite;
       margin-top: 20px;
     }
-
     .progress-container {
       width: 80%;
       margin-top: 30px;
     }
-
     .progress-bar-bg {
       background: rgba(255,255,255,0.2);
       border-radius: 20px;
     }
-
     .progress-bar-fill {
       height: 15px;
       width: 0%;
@@ -103,7 +91,7 @@
 <body>
 
   <div class="love-date">
-    💗 คบกันวันที่ 21 พฤษภาคม 2568 💗
+    💗 คบกันตั้งแต่วันที่ 21 พฤษภาคม 2568 💗
   </div>
 
   <h1>เจอกันในอีก 💞</h1>
@@ -119,11 +107,11 @@
     </div>
   </div>
 
-  <a class="back-button" href="index.html">← กลับหน้าหลัก</a>
+  <a class="back-button" href="#">← กลับหน้าหลัก</a>
   <button class="back-button" onclick="document.getElementById('bg-music').play()">▶️ เปิดเพลง</button>
 
-  <audio id="bg-music" loop>
-    <source src="https://chat.openai.com/mnt/data/i-love-yed.mp3" type="audio/mpeg" />
+  <audio id="bg-music" loop autoplay>
+    <source src="i-love-yed.mp3" type="audio/mpeg" />
   </audio>
 
   <script>
