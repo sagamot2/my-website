@@ -100,6 +100,38 @@
       z-index: 999;
       font-size: 1.5em;
     }
+    #chatBox {
+      width: 90%;
+      max-width: 500px;
+      margin: 30px auto 0 auto;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      color: black;
+      font-family: 'Mitr', sans-serif;
+      font-size: 1.1em;
+      max-height: 180px;
+      overflow-y: auto;
+      text-align: left;
+    }
+    .chat-message {
+      margin: 6px 0;
+      padding: 8px 14px;
+      background: #ffc0cbcc;
+      border-radius: 18px;
+      max-width: 80%;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeInUp 0.5s ease forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
@@ -122,9 +154,8 @@
   </div>
 
   <a class="back-button" href="#">← กลับหน้าหลัก</a>
-
-  <!-- Popup Message -->
   <div id="popup">🥺 ขอเย่กโหน่ยยยได้ม้ายยย 💖</div>
+  <div id="chatBox"></div>
 
   <script>
     const countdownElement = document.getElementById("countdown");
@@ -132,6 +163,7 @@
     const countdownMinutesElement = document.getElementById("countdown-minutes");
     const progressBar = document.getElementById("progress-bar");
     const popup = document.getElementById("popup");
+    const chatBox = document.getElementById("chatBox");
 
     const targetDate = new Date("2025-08-09T07:00:00+07:00");
     const startDate = new Date("2025-07-21T00:00:00+07:00");
@@ -145,11 +177,7 @@
         countdownSecondsElement.textContent = "";
         countdownMinutesElement.textContent = "";
         progressBar.style.width = "100%";
-
-        // แสดงกล่องข้อความ
         popup.style.display = "block";
-
-        // หายไปหลัง 5 วินาที
         setTimeout(() => {
           popup.style.display = "none";
         }, 5000);
@@ -165,7 +193,7 @@
       const totalSeconds = Math.floor(diff / 1000);
       const totalMinutes = Math.floor(diff / (1000 * 60));
 
-      countdownElement.textContent = `${days} วัน ${hours} ชม. ${minutes} นาที ${seconds} วิ`;
+      countdownElement.textContent = `อีก ${days} วัน ได้เจอกัน 💖`;
       countdownSecondsElement.textContent = `รวมทั้งหมด ${totalSeconds.toLocaleString()} วินาที`;
       countdownMinutesElement.textContent = `รวมทั้งหมด ${totalMinutes.toLocaleString()} นาที`;
 
@@ -177,6 +205,30 @@
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
+
+    function postChatMessage(text) {
+      const msg = document.createElement("div");
+      msg.classList.add("chat-message");
+      msg.textContent = text;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+      // ทำให้ข้อความค่อยๆ โผล่
+      setTimeout(() => {
+        msg.style.opacity = "1";
+        msg.style.transform = "translateY(0)";
+      }, 50);
+    }
+
+    function hourlyReminder() {
+      const now = new Date();
+      const diff = targetDate - now;
+      if (diff <= 0) return; 
+
+      const daysLeft = Math.ceil(diff / (1000 * 60 * 60 * 24));
+      postChatMessage(`🕐 อีก ${daysLeft} วัน จะได้เจอกันแล้วน้าา 💖`);
+    }
+    hourlyReminder(); 
+    setInterval(hourlyReminder, 3600000);
   </script>
 </body>
 </html>
