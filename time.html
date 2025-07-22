@@ -86,6 +86,20 @@
       border-radius: 20px;
       transition: width 0.5s ease;
     }
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 192, 203, 0.95);
+      color: #222;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 999;
+      font-size: 1.5em;
+    }
   </style>
 </head>
 <body>
@@ -107,12 +121,17 @@
     </div>
   </div>
 
-  <a class="index.html" href="#">← กลับหน้าหลัก</a>
+  <a class="back-button" href="#">← กลับหน้าหลัก</a>
+
+  <!-- Popup Message -->
+  <div id="popup">🥺 ขอเย่กโหน่ยยยได้ม้ายยย 💖</div>
+
   <script>
     const countdownElement = document.getElementById("countdown");
     const countdownSecondsElement = document.getElementById("countdown-seconds");
     const countdownMinutesElement = document.getElementById("countdown-minutes");
     const progressBar = document.getElementById("progress-bar");
+    const popup = document.getElementById("popup");
 
     const targetDate = new Date("2025-08-09T07:00:00+07:00");
     const startDate = new Date("2025-07-21T00:00:00+07:00");
@@ -126,6 +145,15 @@
         countdownSecondsElement.textContent = "";
         countdownMinutesElement.textContent = "";
         progressBar.style.width = "100%";
+
+        // แสดงกล่องข้อความ
+        popup.style.display = "block";
+
+        // หายไปหลัง 5 วินาที
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 5000);
+
         return;
       }
 
