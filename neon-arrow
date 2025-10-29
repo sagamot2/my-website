@@ -1,0 +1,45 @@
+/* Styling for the Neon Arrow */
+.neon-arrow {
+  position: fixed; /* Fixed position relative to the viewport */
+  bottom: 100px; /* Adjust this to position it above the bubble */
+  right: 15px;  /* Adjust this to position it left of the bubble */
+  z-index: 1000; /* Make sure it's on top of other content */
+  width: 50px; /* Width of the arrow element */
+  height: 50px; /* Height of the arrow element */
+  transform: rotate(135deg); /* Rotates the 'V' shape to point down-right */
+}
+
+/* Creating the arrow shape using a border */
+.neon-arrow::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-bottom: 5px solid red; /* Main color of the arrow */
+  border-right: 5px solid red;  /* Main color of the arrow */
+  box-shadow: 
+    0 0 5px #ff0000, 
+    0 0 10px #ff0000, 
+    0 0 15px #ff0000; /* Initial neon glow */
+  animation: neonBlink 1.5s infinite alternate; /* Apply the blinking animation */
+}
+
+/* Keyframes for the Blinking Neon Effect */
+@keyframes neonBlink {
+  from {
+    opacity: 1;
+    box-shadow: 
+      0 0 5px #ff0000, 
+      0 0 10px #ff0000, 
+      0 0 15px #ff0000, 
+      0 0 20px #ff0000, 
+      0 0 30px #ff0000;
+  }
+  to {
+    opacity: 0.8;
+    box-shadow: 
+      0 0 2px #ff0000, 
+      0 0 5px #ff0000, 
+      0 0 7px #ff0000; /* Dimmer glow */
+  }
+}
