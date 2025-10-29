@@ -174,52 +174,6 @@
       background: rgba(255, 182, 193, 0.9);
       box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
     }
-    
-    /* --- NEW NEON ARROW STYLE (ลูกศรนีออนสีแดง) --- */
-    .neon-arrow {
-      /* ตำแหน่งของลูกศร (ชี้ไปที่ .floating-bubble ซึ่งอยู่ bottom: 30px, right: 30px) */
-      position: fixed;
-      bottom: 90px; /* เลื่อนขึ้นเหนือปุ่ม */
-      right: 55px; /* เลื่อนมาทางซ้ายของปุ่ม */
-      z-index: 1001; 
-      width: 50px;
-      height: 50px;
-      transform: rotate(135deg); /* หมุนให้ชี้ลงไปทางขวา */
-      pointer-events: none; /* เพื่อให้คลิกผ่านลูกศรไปยังปุ่มด้านล่างได้ */
-    }
-
-    .neon-arrow::after {
-      content: '';
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      border-bottom: 4px solid #FF0000; /* สีแดงนีออน */
-      border-right: 4px solid #FF0000;  /* สีแดงนีออน */
-      box-shadow: 
-        0 0 5px #FF0000, 
-        0 0 10px #FF0000, 
-        0 0 15px #FF0000; /* เงาเริ่มต้น */
-      animation: neonBlink 1.5s infinite alternate; /* แอนิเมชันกระพริบ */
-    }
-
-    @keyframes neonBlink {
-      from {
-        opacity: 1;
-        box-shadow: 
-          0 0 5px #FF0000, 
-          0 0 10px #FF0000, 
-          0 0 15px #FF0000, 
-          0 0 25px #FF0000; /* แสงสว่างมาก */
-      }
-      to {
-        opacity: 0.8;
-        box-shadow: 
-          0 0 2px #FF0000, 
-          0 0 5px #FF0000, 
-          0 0 7px #FF0000; /* แสงหรี่ลงเล็กน้อย */
-      }
-    }
-    /* --- END NEW NEON ARROW STYLE --- */
   </style>
 </head>
 <body>
@@ -243,8 +197,6 @@
       ฝากด้วยนะ tiktok @guhumyai5556 💫
     </a>
   </div>
-    
-  <div class="neon-arrow"></div>
 
   <div class="bubbles">
     <span></span><span></span><span></span><span></span><span></span>
