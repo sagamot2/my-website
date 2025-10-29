@@ -1,123 +1,140 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>รักของกัส 💘</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@400;700&display=swap');
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>รักของกัส 💘</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mitr:wght@400;700&display=swap');
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Mitr', sans-serif;
-      background: linear-gradient(135deg, #2c003e, #40055d, #1a0026);
-      background-size: 300% 300%;
-      animation: bgScroll 15s ease infinite;
-      text-align: center;
-      color: white;
-    }
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Mitr', sans-serif;
+            background: linear-gradient(135deg, #2c003e, #40055d, #1a0026);
+            background-size: 300% 300%;
+            animation: bgScroll 15s ease infinite;
+            text-align: center;
+            color: white;
+        }
 
-    @keyframes bgScroll {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+        @keyframes bgScroll {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-    h1 {
-      margin-top: 15vh;
-      font-size: 2.5rem;
-      animation: glow 1s infinite alternate;
-    }
+        h1 {
+            margin-top: 15vh;
+            font-size: 2.5rem;
+            animation: glow 1s infinite alternate;
+        }
 
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px #ff69b4; }
-      100% { text-shadow: 0 0 30px #ff1493, 0 0 40px #ff69b4; }
-    }
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #ff69b4; }
+            100% { text-shadow: 0 0 30px #ff1493, 0 0 40px #ff69b4; }
+        }
 
-    .falling-message {
-      position: absolute;
-      top: -60px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #fff;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 12px 22px;
-      border-radius: 25px;
-      box-shadow: 0 0 15px #ff69b4;
-      white-space: nowrap;
-      animation: zoomFall 10s ease forwards;
-      pointer-events: none;
-    }
+        .falling-message {
+            position: absolute;
+            top: -60px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 22px;
+            border-radius: 25px;
+            box-shadow: 0 0 15px #ff69b4;
+            white-space: nowrap;
+            animation: zoomFall 10s ease forwards;
+            pointer-events: none;
+            will-change: transform, opacity;
+        }
 
-    @keyframes zoomFall {
-      0% {
-        transform: scale(0.3) translateY(0);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      50% {
-        transform: scale(1.05) translateY(50vh);
-      }
-      100% {
-        transform: scale(1.2) translateY(110vh);
-        opacity: 0;
-      }
-    }
+        @media (max-width: 600px) {
+            .falling-message {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+        }
 
-    .back-button {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: hotpink;
-      color: white;
-      padding: 12px 28px;
-      border-radius: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 0 15px deeppink;
-      z-index: 1100;
-      transition: all 0.3s ease;
-    }
+        @keyframes zoomFall {
+            0% {
+                transform: scale(0.3) translateY(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05) translateY(50vh);
+            }
+            100% {
+                transform: scale(1.2) translateY(110vh);
+                opacity: 0;
+            }
+        }
 
-    .back-button:hover {
-      background: deeppink;
-      box-shadow: 0 0 25px #ff1493;
-    }
-  </style>
+        .back-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: hotpink;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 15px deeppink;
+            z-index: 1100;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: deeppink;
+            box-shadow: 0 0 25px #ff1493;
+        }
+    </style>
 </head>
 <body>
-  <a href="index.html" class="back-button">ย้อนกลับ 💫</a>
+    <a href="index.html" class="back-button">ย้อนกลับ 💫</a>
 
-  <script>
-  const messages = [
-  "รักมากๆเลยนะ แก้ม 💘", "คิดถึงแก้มที่สุดดดดด💭", 
-  "ยิ้มของแก้มทำให้โลกสดใส 🌞", "แก้มน่ารักที่สุดเลย 🥺",
-  "อยากกอดแก้มจัง 🤗", "ขอบคุณที่เข้ามาในชีวิต 💖", 
-  "แก้มคือคนพิเศษของเค้าา 🌈", "จะอยู่ข้างๆ แก้มเสมอ 💞", 
-  "แค่เห็นหน้าแก้มก็ยิ้มแล้ว 😊", "ยิ้มเยอะๆนะะะ 💓", 
-  "รักแก้มไม่มีวันหมดอายุ 🕊️", "แก้มคือเหตุผลของการมีชีวิต 🎈",
-  "ทุกอย่างดีขึ้นเพราะแก้ม ❤️", "อย่าทิ้งกันนะ แก้ม 🤍", 
-  "ขออยู่ข้างๆ แก้มไปนานๆนะ 👫",
-  "ไม่มีใครแทนที่แก้มได้ 💎", "รักแก้มที่สุดในโลกกก 🌍"
-];
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const messages = [
+                "รักมากๆเลยนะ แก้ม 💘", "คิดถึงแก้มที่สุดดดดด💭",
+                "ยิ้มของแก้มทำให้โลกสดใส 🌞", "แก้มน่ารักที่สุดเลย 🥺",
+                "อยากกอดแก้มจัง 🤗", "ขอบคุณที่เข้ามาในชีวิต 💖",
+                "แก้มคือคนพิเศษของเค้าา 🌈", "จะอยู่ข้างๆ แก้มเสมอ 💞",
+                "แค่เห็นหน้าแก้มก็ยิ้มแล้ว 😊", "ยิ้มเยอะๆนะะะ 💓",
+                "รักแก้มไม่มีวันหมดอายุ 🕊️", "แก้มคือเหตุผลของการมีชีวิต 🎈",
+                "ทุกอย่างดีขึ้นเพราะแก้ม ❤️", "อย่าทิ้งกันนะ แก้ม 🤍",
+                "ขออยู่ข้างๆ แก้มไปนานๆนะ 👫",
+                "ไม่มีใครแทนที่แก้มได้ 💎", "รักแก้มที่สุดในโลกกก 🌍"
+            ];
 
+            function createFallingMessage() {
+                const msg = document.createElement('div');
+                msg.className = 'falling-message';
+                msg.textContent = messages[Math.floor(Math.random() * messages.length)];
+                document.body.appendChild(msg);
 
-    function createFallingMessage() {
-      const msg = document.createElement("div");
-      msg.className = "falling-message";
-      msg.textContent = messages[Math.floor(Math.random() * messages.length)];
-      msg.style.left = Math.random() * (window.innerWidth - 500) + "px";
-      document.body.appendChild(msg);
-      setTimeout(() => msg.remove(), 11000); 
-    }
-    setInterval(createFallingMessage, 1500);
-  </script>
+                const msgWidth = msg.offsetWidth;
+                const windowWidth = window.innerWidth;
+                const maxLeft = Math.max(0, windowWidth - msgWidth);
+                const left = Math.random() * maxLeft;
+                msg.style.left = left + 'px';
+                setTimeout(() => {
+                    if (msg && msg.parentNode) msg.parentNode.removeChild(msg);
+                }, 11000);
+            }
+
+            createFallingMessage();
+            setInterval(createFallingMessage, 1500);
+        });
+    </script>
 </body>
 </html>
-
