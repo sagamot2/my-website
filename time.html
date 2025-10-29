@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Countdown to Meet 💖</title>
+  <title>Countdown 💖</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Mitr&display=swap');
     body {
@@ -137,7 +137,7 @@
 <body>
 
   <div class="love-date">
-    💗 คบกันตั้งแต่วันที่ 21 พฤษภาคม 2568 💗
+    💗 คบกันตั้งแต่วันที่  27 ตุลาคม 2568 💗
   </div>
 
   <h1>เจอกันในอีก 💞</h1>
@@ -164,9 +164,10 @@
     const progressBar = document.getElementById("progress-bar");
     const popup = document.getElementById("popup");
     const chatBox = document.getElementById("chatBox");
+    
+    const targetDate = new Date("2026-01-01T00:00:00+07:00"); 
+    const startDate = new Date("2025-12-01T00:00:00+07:00"); 
 
-    const targetDate = new Date("2025-08-09T07:00:00+07:00");
-    const startDate = new Date("2025-07-21T00:00:00+07:00");
 
     function updateCountdown() {
       const now = new Date();
@@ -232,3 +233,4 @@
   </script>
 </body>
 </html>
+
