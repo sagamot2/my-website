@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown สำหรับคนพิเศษ</title>
+  
+  <style>
+    body {
+      background-color: #1a1a25;
+      color: white;
+      font-family: 'Tahoma', sans-serif;
+      padding-top: 30px;
+    }
+  
+    .all-countdowns-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px; 
+      padding: 20px;
+    }
+    .countdown-container {
+      background-color: rgba(30, 30, 50, 0.7); 
+      color: #FFFFFF;
+      padding: 15px;
+      border-radius: 20px;
+      text-align: center;
+      width: 300px; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      border: 2px solid transparent;
+      backdrop-filter: blur(5px); 
+    }
+    .countdown-container.special {
+      background-color: rgba(87, 58, 73, 0.8);
+      border: 2px solid #fce4ec;
+    }
+
+    .countdown-container h3 {
+      margin: 0 0 10px 0;
+      font-size: 1em;
+      color: #fce4ec; 
+    }
+
+    .timer-display {
+      font-size: 1.4em;
+      font-weight: bold;
+      color: #fff;
+    }
+    .timer-display span {
+      font-size: 1.2em;
+      margin: 0 2px;
+    }
+  </style>
+  </head>
+<body>
+
+  <div class="all-countdowns-wrapper">
+
+    <div class="countdown-container" data-target-date="2025-11-05T00:00:00">
+      <h3>🌕 อีก... วันถึงวันลอยกระทง</h3>
+      <div class="timer-display">
+        <span class="days">0</span> วัน
+        <span class="hours">0</span> ชม.
+        <span class="minutes">0</span> นาที
+        <span class="seconds">0</span> วิ
+      </div>
+    </div>
+
+    <div class="countdown-container" data-target-date="2025-12-25T00:00:00">
+      <h3>🎄 อีก... วันถึงคริสต์มาส</h3>
+      <div class="timer-display">
+        <span class="days">0</span> วัน
+        <span class="hours">0</span> ชม.
+        <span class="minutes">0</span> นาที
+        <span class="seconds">0</span> วิ
+      </div>
+    </div>
+
+    <div class="countdown-container" data-target-date="2026-01-01T00:00:00">
+      <h3>🎉 Countdown ปีใหม่!</h3>
+      <div class="timer-display">
+        <span class="days">0</span> วัน
+        <span class="hours">0</span> ชม.
+        <span class="minutes">0</span> นาที
+        <span class="seconds">0</span> วิ
+      </div>
+    </div>
+
+    <div class="countdown-container" data-target-date="2026-02-14T00:00:00">
+      <h3>❤️ อีก... วันถึงวาเลนไทน์</h3>
+      <div class="timer-display">
+        <span class="days">0</span> วัน
+        <span class="hours">0</span> ชม.
+        <span class="minutes">0</span> นาที
+        <span class="seconds">0</span> วิ
+      </div>
+    </div>
+
+    <div class="countdown-container" data-target-date="2026-04-13T00:00:00">
+      <h3>💦 อีก... วันถึงสงกรานต์</h3>
+      <div class="timer-display">
+        <span class="days">0</span> วัน
+        <span class="hours">0</span> ชม.
+        <span class="minutes">0</span> นาที
+        <span class="seconds">0</span> วิ
+      </div>
+    </div>
+
+    <div class="countdown-container special" data-target-date="2026-10-27T00:00:00">
+      <h3>💖 วันครบรอบของเรา 💖</h3>
+      <div class="timer-display">
+        <span class="days">0</span> วัน
+        <span class="hours">0</span> ชม.
+        <span class="minutes">0</span> นาที
+        <span class="seconds">0</span> วิ
+      </div>
+    </div>
+
+  </div>
+  <script>
+    function updateAllCountdowns() {
+      const timers = document.querySelectorAll('.countdown-container');
+      const now = new Date().getTime();
+
+      timers.forEach(timer => {
+        try { 
+          const targetDateStr = timer.dataset.targetDate;
+          if (!targetDateStr) return; 
+
+          const targetDate = new Date(targetDateStr).getTime();
+          
+          if (isNaN(targetDate)) { 
+            throw new Error('Invalid date format: ' + targetDateStr);
+          }
+
+          const distance = targetDate - now;
+
+          const daysEl = timer.querySelector('.days');
+          const hoursEl = timer.querySelector('.hours');
+          const minutesEl = timer.querySelector('.minutes');
+          const secondsEl = timer.querySelector('.seconds');
+          const displayEl = timer.querySelector('.timer-display');
+          const titleEl = timer.querySelector('h3');
+          if (!daysEl || !hoursEl || !minutesEl || !secondsEl || !displayEl) {
+            throw new Error('Could not find timer elements inside.');
+          }
+          if (distance < 0) {
+            displayEl.innerHTML = "🎉 ถึงแล้ว! 🎉";
+            if (titleEl) {
+              if(titleEl.innerHTML.includes('อีก... วันถึง')) {
+                titleEl.innerHTML = titleEl.innerHTML.replace("อีก... วันถึง", "Happy");
+              } else if (titleEl.innerHTML.includes('Countdown')) {
+                titleEl.innerHTML = "Happy New Year 2026!";
+              }
+            }
+          } else {
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.innerText = days;
+            hoursEl.innerText = hours;
+            minutesEl.innerText = minutes;
+            secondsEl.innerText = seconds;
+          }
+        } catch (e) {
+          console.error("Countdown Error:", e.message, "in timer:", timer);
+          const displayEl = timer.querySelector('.timer-display');
+          if (displayEl) {
+            displayEl.innerHTML = "!! ใส่ข้อมูลผิด !!";
+          }
+        } 
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        updateAllCountdowns();
+        setInterval(updateAllCountloads, 1000);
+      });
+    } else {
+      updateAllCountdowns();
+      setInterval(updateAllCountdowns, 1000);
+    }
+  </script>
+  </body>
+</html>
