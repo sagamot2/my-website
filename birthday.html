@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Happy Birthday แก้ม & กัส 💖</title>
+<style>
+  * {margin: 0; padding: 0; box-sizing: border-box;}
+  body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+
+  video {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: blur(2px) brightness(0.85);
+  }
+
+  .overlay {
+    position: fixed;
+    width: 100%; height: 100%;
+    background: rgba(255, 182, 193, 0.2);
+    backdrop-filter: blur(8px);
+    z-index: -1;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 25px;
+    padding: 40px 60px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 182, 193, 0.5);
+    backdrop-filter: blur(15px);
+    animation: fadeIn 2.5s ease;
+  }
+
+  h1 {
+    font-size: 3em;
+    color: #ffe6f2;
+    text-shadow: 0 0 15px #ff9ac8, 0 0 30px #ffb6c1;
+    animation: glow 3s infinite alternate;
+  }
+
+  h2 {
+    font-size: 1.7em;
+    margin-top: 10px;
+    color: #fff0fa;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin-top: 15px;
+    color: #fff;
+  }
+
+  .love-text {
+    margin-top: 25px;
+    font-size: 1.2em;
+    color: #ffeaf2;
+    font-style: italic;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  @keyframes glow {
+    from {text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ff69b4;}
+    to {text-shadow: 0 0 25px #fff, 0 0 40px #ffb6c1;}
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 22px;
+    color: #ffb6c1;
+    opacity: 0.9;
+    animation: float 6s linear infinite;
+  }
+
+  @keyframes float {
+    from {transform: translateY(100vh) scale(1); opacity: 1;}
+    to {transform: translateY(-10vh) scale(1.8); opacity: 0;}
+  }
+</style>
+</head>
+<body>
+
+<video autoplay loop muted playsinline>
+  <source src="https://motionbgs.com/media/1722/pink-hello-kitty-on-cloud.960x540.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<div class="card">
+  <h1>🎂 Happy Birthday 💖</h1>
+  <h2>แก้ม (06/05/2007) & กัส (22/06/2006)</h2>
+  <p>💞 เกิดห่างกัน 318 วัน ✨<br>(ประมาณ 10 เดือน 14 วัน)</p>
+  <div class="love-text">ขอให้เราอยู่ด้วยกันไปนาน ๆ นะ 💗</div>
+</div>
+
+<script>
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = ['💖','💗','💕','💞'][Math.floor(Math.random()*4)];
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = 3 + Math.random() * 3 + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }, 400);
+</script>
+
+</body>
+</html>
