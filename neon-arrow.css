@@ -1,0 +1,42 @@
+/* Styling for the Neon Arrow */
+.neon-arrow {
+  position: fixed; 
+  bottom: 100px; 
+  right: 15px;  
+  z-index: 1000; 
+  width: 50px;
+  height: 50px; 
+  transform: rotate(135deg); 
+}
+.neon-arrow::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-bottom: 5px solid red; 
+  border-right: 5px solid red; 
+  box-shadow: 
+    0 0 5px #ff0000, 
+    0 0 10px #ff0000, 
+    0 0 15px #ff0000; 
+  animation: neonBlink 1.5s infinite alternate;
+}
+
+@keyframes neonBlink {
+  from {
+    opacity: 1;
+    box-shadow: 
+      0 0 5px #ff0000, 
+      0 0 10px #ff0000, 
+      0 0 15px #ff0000, 
+      0 0 20px #ff0000, 
+      0 0 30px #ff0000;
+  }
+  to {
+    opacity: 0.8;
+    box-shadow: 
+      0 0 2px #ff0000, 
+      0 0 5px #ff0000, 
+      0 0 7px #ff0000;
+  }
+}
