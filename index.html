@@ -1,6 +1,39 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
+  <meta charset="UTF-8">
+  <title>บล็อกการเข้าถึง</title>
+  <style>
+    body {
+      overflow: hidden; /* ป้องกันการเลื่อนหน้า */
+    }
+    #overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.85);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      font-family: sans-serif;
+      font-size: 1.5em;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="overlay">
+  เหลือผู้ชายใน IG น้อยกว่าผู้หญิง<br>
+  ไม่สามารถเข้าชมเว็บไซต์ได้จนกว่ากัสจะพอใจ<br>
+</div>
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title> แก้มรักกัสมั้ย 💖</title>
@@ -221,6 +254,11 @@
       );
     }
   </script>
+
+</body>
+</html>
+
+
 
 </body>
 </html>
