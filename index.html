@@ -2,33 +2,58 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>บล็อกการเข้าถึง</title>
+  <title>บล็อก</title>
   <style>
     body {
-      overflow: hidden; /* ป้องกันการเลื่อนหน้า */
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('') no-repeat center center fixed;
+      background-size: cover;
     }
+
     #overlay {
       position: fixed;
       top: 0; left: 0;
       width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.85);
-      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      font-family: sans-serif;
-      font-size: 1.5em;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 500px;
       text-align: center;
-      padding: 20px;
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .glass-box h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .glass-box p {
+      font-size: 1.2em;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
 
 <div id="overlay">
-  เหลือผู้ชายใน IG น้อยกว่าผู้หญิง<br>
-  ไม่สามารถเข้าชมเว็บไซต์ได้จนกว่ากัสจะพอใจ<br>
+  <div class="glass-box">
+    <h2>🚫 เข้าชมเว็บไซต์ไม่ได้</h2>
+    <p>ไปลบฟอลให้เหลือผู้ชายใน IG น้อยกว่าผู้หญิงก่อน<br>ถึงจะเข้าชมได้</p>
+  </div>
 </div>
 
 <!DOCTYPE html>
@@ -257,8 +282,6 @@
 
 </body>
 </html>
-
-
 
 </body>
 </html>
